@@ -1,0 +1,8 @@
+{
+    "CreateAPIKey": 1,
+    "AppSyncApiName": "integragitex2021",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "S3DeploymentBucket": "amplify-integragitex2021-dev-211526-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/0c7e8236d68358fd57e710f1891657707bac4372"
+}

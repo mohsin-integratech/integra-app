@@ -1,0 +1,24 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-integragitex2021-dev-211526-authRole",
+      "UnauthRoleArn": "arn:aws:iam::038540414823:role/amplify-integragitex2021-dev-211526-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::038540414823:role/amplify-integragitex2021-dev-211526-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-integragitex2021-dev-211526-deployment",
+      "UnauthRoleName": "amplify-integragitex2021-dev-211526-unauthRole",
+      "StackName": "amplify-integragitex2021-dev-211526",
+      "StackId": "arn:aws:cloudformation:us-east-1:038540414823:stack/amplify-integragitex2021-dev-211526/2d61dee0-2792-11ec-8b41-12f72fd93ee9",
+      "AmplifyAppId": "d2p1l8tib2yq9z"
+    },
+    "categories": {
+      "function": {
+        "integragitex202132d1e312": {
+          "sesEmail": "mohsin7007@hotmail.com",
+          "deploymentBucketName": "amplify-integragitex2021-dev-211526-deployment",
+          "s3Key": "amplify-builds/integragitex202132d1e312-4a4b4836702b494a6b64-build.zip"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,173 @@
+type Candidate {
+  id: ID!
+  name: String!
+  designation: String!
+  companyname: String!
+  email: AWSEmail!
+  phone: String!
+  comments: String!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelCandidateConnection {
+  items: [Candidate]
+  nextToken: String
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+input ModelCandidateFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  designation: ModelStringInput
+  companyname: ModelStringInput
+  email: ModelStringInput
+  phone: ModelStringInput
+  comments: ModelStringInput
+  and: [ModelCandidateFilterInput]
+  or: [ModelCandidateFilterInput]
+  not: ModelCandidateFilterInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+type Query {
+  getCandidate(id: ID!): Candidate
+  listCandidates(filter: ModelCandidateFilterInput, limit: Int, nextToken: String): ModelCandidateConnection
+}
+
+input CreateCandidateInput {
+  id: ID
+  name: String!
+  designation: String!
+  companyname: String!
+  email: AWSEmail!
+  phone: String!
+  comments: String!
+}
+
+input UpdateCandidateInput {
+  id: ID!
+  name: String
+  designation: String
+  companyname: String
+  email: AWSEmail
+  phone: String
+  comments: String
+}
+
+input DeleteCandidateInput {
+  id: ID!
+}
+
+type Mutation {
+  createCandidate(input: CreateCandidateInput!, condition: ModelCandidateConditionInput): Candidate
+  updateCandidate(input: UpdateCandidateInput!, condition: ModelCandidateConditionInput): Candidate
+  deleteCandidate(input: DeleteCandidateInput!, condition: ModelCandidateConditionInput): Candidate
+}
+
+input ModelCandidateConditionInput {
+  name: ModelStringInput
+  designation: ModelStringInput
+  companyname: ModelStringInput
+  email: ModelStringInput
+  phone: ModelStringInput
+  comments: ModelStringInput
+  and: [ModelCandidateConditionInput]
+  or: [ModelCandidateConditionInput]
+  not: ModelCandidateConditionInput
+}
+
+type Subscription {
+  onCreateCandidate: Candidate @aws_subscribe(mutations: ["createCandidate"])
+  onUpdateCandidate: Candidate @aws_subscribe(mutations: ["updateCandidate"])
+  onDeleteCandidate: Candidate @aws_subscribe(mutations: ["deleteCandidate"])
+}

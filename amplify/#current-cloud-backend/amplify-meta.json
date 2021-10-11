@@ -1,0 +1,97 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-integragitex2021-dev-211526-authRole",
+      "UnauthRoleArn": "arn:aws:iam::038540414823:role/amplify-integragitex2021-dev-211526-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::038540414823:role/amplify-integragitex2021-dev-211526-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-integragitex2021-dev-211526-deployment",
+      "UnauthRoleName": "amplify-integragitex2021-dev-211526-unauthRole",
+      "StackName": "amplify-integragitex2021-dev-211526",
+      "StackId": "arn:aws:cloudformation:us-east-1:038540414823:stack/amplify-integragitex2021-dev-211526/2d61dee0-2792-11ec-8b41-12f72fd93ee9",
+      "AmplifyAppId": "d2p1l8tib2yq9z"
+    }
+  },
+  "api": {
+    "integragitex2021": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7,
+              "description": ""
+            }
+          },
+          "additionalAuthenticationProviders": []
+        },
+        "GraphQLAPIIdOutput": "haxze5mzyjfczf2vrsdpb7lg7q",
+        "GraphQLAPIEndpointOutput": "https://xshymwiexzhyncdmoze4gvqjhu.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-b7fiwsydonbgteptypis4jroku"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-integragitex2021-dev-211526-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiintegragitex2021"
+      },
+      "lastPushTimeStamp": "2021-10-07T18:21:12.424Z",
+      "lastPushDirHash": "iSrNH+G0kL3vfNuABCIP6PDuZgk="
+    }
+  },
+  "function": {
+    "integragitex202132d1e312": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "api",
+          "resourceName": "integragitex2021",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
+          ]
+        }
+      ],
+      "lastBuildTimeStamp": "2021-10-07T18:06:52.488Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2021-10-07T18:06:52.524Z",
+      "distZipFilename": "integragitex202132d1e312-4a4b4836702b494a6b64-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-integragitex2021-dev-211526-deployment",
+        "s3Key": "amplify-builds/integragitex202132d1e312-4a4b4836702b494a6b64-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-integragitex2021-dev-211526-deployment/amplify-cfn-templates/function/integragitex202132d1e312-cloudformation-template.json",
+        "logicalId": "functionintegragitex202132d1e312"
+      },
+      "lastPushTimeStamp": "2021-10-07T18:21:12.428Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:038540414823:function:integragitex202132d1e312-dev",
+        "Name": "integragitex202132d1e312-dev",
+        "LambdaExecutionRole": "integragitex2021LambdaRole59abc6b8-dev"
+      },
+      "lastPushDirHash": "CFetooIC+Lb2Itw/8xFNT982mxA="
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "service": "S3AndCloudFront",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-integragitex2021-dev-211526-deployment/amplify-cfn-templates/hosting/template.json",
+        "logicalId": "hostingS3AndCloudFront"
+      },
+      "lastPushTimeStamp": "2021-10-07T18:21:12.439Z",
+      "output": {
+        "S3BucketSecureURL": "https://integragitex2021-20211007221839-hostingbucket-dev.s3.amazonaws.com",
+        "WebsiteURL": "http://integragitex2021-20211007221839-hostingbucket-dev.s3-website-us-east-1.amazonaws.com",
+        "Region": "us-east-1",
+        "HostingBucketName": "integragitex2021-20211007221839-hostingbucket-dev"
+      },
+      "lastPushDirHash": "YJxPcMtAH8PHjUAwxMuc+Y3jlTg="
+    }
+  }
+}
